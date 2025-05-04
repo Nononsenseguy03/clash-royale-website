@@ -1,109 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Clash Royale Central</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kobi's Clash Royale Site</title>
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
+    * {
       margin: 0;
-      background: url('https://images.unsplash.com/photo-1612277791272-2d82bb9b321e') no-repeat center center fixed;
-      background-size: cover;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      font-family: 'Courier New', Courier, monospace;
       color: white;
+      background-color: #111;
     }
 
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 40px;
-      min-height: 100vh;
+    h2, h3 {
+      color: #ffd700;
     }
 
-    h1 {
+    .cipher-hint {
+      background-color: #2c2c2c;
+      color: #ffd700;
+      padding: 15px 20px;
       text-align: center;
-      font-size: 3em;
-      color: gold;
+      font-size: 16px;
+      border-bottom: 3px solid #444;
     }
 
-    section {
-      margin: 40px auto;
-      max-width: 800px;
-      background: rgba(0, 0, 0, 0.6);
+    #kobi-puzzle {
+      padding: 30px;
+      background-color: #222;
+      color: #eee;
+      text-align: center;
+    }
+
+    #deck {
       padding: 20px;
-      border-radius: 10px;
+      background-color: #222;
+      color: #eee;
+      margin-top: 30px;
     }
 
-    h2 {
-      color: #00ccff;
-      margin-bottom: 10px;
+    #goblin-gang {
+      text-decoration: underline;
+      cursor: pointer;
+      color: #0f0;
+    }
+    
+    .hidden-clue {
+      font-size: 14px;
+      color: #555;
+      cursor: help;
     }
 
-    ul {
-      padding-left: 20px;
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
     }
 
-    .card-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-    }
-
-    .card-grid img {
-      width: 100px;
-      border-radius: 8px;
-      border: 2px solid white;
-    }
-
-    a {
-      color: #00ccff;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2em;
-      }
-    }
   </style>
 </head>
 <body>
-  <div class="overlay">
-    <h1>Clash Royale Central</h1>
 
-    <section>
-      <h2>🔥 Favorite Cards</h2>
-      <div class="card-grid">
-        <img src="https://cdn.statsroyale.com/images/cards/full/prince.png" alt="Prince" />
-        <img src="https://cdn.statsroyale.com/images/cards/full/minipekka.png" alt="Mini P.E.K.K.A." />
-        <img src="https://cdn.statsroyale.com/images/cards/full/magicalarcher.png" alt="Magic Archer" />
-        <img src="https://cdn.statsroyale.com/images/cards/full/skeletonarmy.png" alt="Skeleton Army" />
-      </div>
-    </section>
-
-    <section>
-      <h2>🧠 Strategy Tips</h2>
-      <ul>
-        <li>Use Skeleton Army to counter heavy ground troops.</li>
-        <li>Pair Prince with Fire Spirits for quick pushes.</li>
-        <li>Save Elixir for double time to launch big combos.</li>
-        <li>Don’t rush! Wait and react to your opponent’s plays.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>🏆 Join Our Clan</h2>
-      <p>
-        We’re recruiting chill but active players! Join our clan <strong>“Crown Kings”</strong> if you:
-        <ul>
-          <li>Are active daily</li>
-          <li>Don’t miss war attacks</li>
-          <li>Want to trade cards and climb together</li>
-        </ul>
-      </p>
-      <p>
-        Find us in the game or message us on <a href="https://discord.com/" target="_blank">Discord</a>!
-      </p>
-    </section>
+  <!-- Hint for Puzzle -->
+  <div class="cipher-hint">
+    👑 <strong>Kobi's Tip:</strong> Every king hides secrets in plain sight...  
+    Look for numbers. Look for letters. Combine Caesar’s wisdom with code you can count.  
+    Hidden beneath the battlefield lies a secret only true Royals can unlock.
   </div>
+
+  <!-- Puzzle Instructions -->
+  <section id="kobi-puzzle">
+    <h2>🧩 Kobi's Cipher Challenge</h2>
+    <p>“The arena hides more than champions. Decode the fallen message.”</p>
+    <p><strong>Clue 1 – Numbers:</strong> 3 12 9 3 11</p>
+    <p><strong>Clue 2 – Caesar Shift:</strong> Shift each number’s letter by +2</p>
+    <p>Once you decipher the phrase, act on it...</p>
+  </section>
+
+  <!-- Secret Deck Section -->
+  <section id="deck">
+    <h3>🔒 Kobi's Secret Deck</h3>
+    <ul>
+      <li>Miner</li>
+      <li>Magic Archer</li>
+      <li>Cannon Cart</li>
+      <li>Ice Spirit</li>
+      <li><span id="goblin-gang">Goblin Gang</span></li>
+      <li>Poison</li>
+      <li>Inferno Tower</li>
+      <li>Fireball</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    Made by Kobi ⚔️
+  </footer>
+
+  <!-- Script for redirect -->
+  <script>
+    document.getElementById("goblin-gang").addEventListener("click", function() {
+      window.location.href = "https://your-secret-site.com"; // Replace with your actual target URL
+    });
+  </script>
+  
 </body>
 </html>
