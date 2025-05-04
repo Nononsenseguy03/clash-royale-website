@@ -1,118 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kobi's Clash Royale Site</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kobi's Clash Royale Website</title>
   <style>
     body {
-      font-family: 'Courier New', Courier, monospace;
-      background-color: #111;
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
       color: white;
-      margin: 0;
-      padding: 0;
-    }
-
-    h2, h3 {
-      color: #ffd700;
-    }
-
-    .cipher-hint {
-      background-color: #2c2c2c;
-      color: #ffd700;
-      padding: 15px 20px;
       text-align: center;
-      font-size: 16px;
-      border-bottom: 3px solid #444;
-    }
-
-    #deck {
       padding: 20px;
-      background-color: #222;
-      color: #eee;
-      text-align: center;
     }
-
+    .game-area {
+      display: none;
+      margin-top: 30px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 100px);
+      gap: 10px;
+      justify-content: center;
+    }
     .card {
-      display: inline-block;
-      margin: 10px;
-      border: 1px solid #444;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: scale(1.1);
-    }
-
-    .card img {
       width: 100px;
       height: 140px;
+      background-color: #444;
+      border-radius: 8px;
+      cursor: pointer;
+      perspective: 1000px;
+      position: relative;
     }
-
-    .clash-trivia {
-      margin: 30px auto;
-      padding: 20px;
-      background-color: #181818;
-      color: #ffd700;
-      max-width: 800px;
+    .card-inner {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
     }
-
-    .clash-trivia p {
-      margin-bottom: 15px;
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
     }
-
-    footer {
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 8px;
+    }
+    .card-front {
+      background: #999;
+    }
+    .card-back {
+      background-size: cover;
+      background-position: center;
+      transform: rotateY(180deg);
+    }
+    .button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 32px;
       text-align: center;
-      padding: 20px;
-      color: #aaa;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <div class="cipher-hint">
-    👑 <strong>Kobi's Tip:</strong> Use a Caesar cipher and a number code. Start with the trivia. What do the first letters of the answers spell?
+  <h2>Welcome to Kobi's Clash Royale Website</h2>
+  <p>Can you solve the puzzles and unlock the secret game?</p>
+
+  <!-- Caesar Cipher Challenge Section -->
+  <h3>🧩 Decode the Cipher:</h3>
+  <p><strong>Hint:</strong> Use a Caesar cipher to find the secret phrase!</p>
+  <input id="cipherInput" type="text" placeholder="Enter the decoded phrase">
+  <button class="button" onclick="checkCipher()">Submit</button>
+
+  <h4 id="cipherMessage"></h4>
+
+  <!-- Trivia Section -->
+  <h3>🎮 Clash Royale Trivia</h3>
+  <div id="trivia">
+    <p>What is the rarest card in Clash Royale?</p>
+    <input type="text" id="triviaAnswer" placeholder="Your answer here">
+    <button class="button" onclick="checkTrivia()">Submit Answer</button>
+    <h4 id="triviaMessage"></h4>
   </div>
 
-  <section id="deck">
-    <h3>🔒 Kobi's Secret Deck</h3>
-    <p>Click the right card to unlock the next part of the puzzle.</p>
-    <div class="card" id="goblin-gang">
-      <img src="https://static.wikia.nocookie.net/clashroyale/images/2/26/GoblinGangCard.png" alt="Goblin Gang Card">
-    </div>
-    <div class="card">
-      <img src="https://static.wikia.nocookie.net/clashroyale/images/5/5a/MinerCard.png" alt="Miner Card">
-    </div>
-    <div class="card">
-      <img src="https://static.wikia.nocookie.net/clashroyale/images/2/2c/MagicArcherCard.png" alt="Magic Archer Card">
-    </div>
-  </section>
+  <!-- Goblin Gang Card -->
+  <h2>🃏 Double-click the Goblin Gang to start the game!</h2>
+  <img id="goblinImage" src="https://static.wikia.nocookie.net/clashroyale/images/e/e3/GoblinGangCard.png"
+       alt="Goblin Gang" style="width:200px;cursor:pointer;border:3px solid lime;border-radius:8px;">
 
-  <section class="clash-trivia">
-    <h2>🧠 Clash Royale Trivia</h2>
-    <p><strong>Q1:</strong> Which card costs the least elixir in the game?<br><strong>A:</strong> <em>Goblins</em></p>
-    <p><strong>Q2:</strong> What happens when a match ends in a tie?<br><strong>A:</strong> <em>Overtime</em></p>
-    <p><strong>Q3:</strong> Which card deals area damage and flies?<br><strong>A:</strong> <em>Baby Dragon</em></p>
-    <p><strong>Q4:</strong> What flying tank has the most health?<br><strong>A:</strong> <em>Lava Hound</em></p>
-    <p><strong>Q5:</strong> Which troop freezes enemies upon contact?<br><strong>A:</strong> <em>Ice Spirit</em></p>
-    <p><strong>Q6:</strong> What troop spawns bats and rides a pig?<br><strong>A:</strong> <em>Night Witch</em></p>
-    <p><strong>Q7:</strong> Which rare card splits into two when defeated?<br><strong>A:</strong> <em>Guards</em></p>
-    <p><strong>Q8:</strong> What spell damages both troops and buildings?<br><strong>A:</strong> <em>Arrows</em></p>
-    <p><strong>Q9:</strong> Which troop can clone others?<br><strong>A:</strong> <em>Night Witch</em></p>
-    <p><strong>Q10:</strong> What’s the name of the strongest ground tank troop?<br><strong>A:</strong> <em>Giant</em></p>
-  </section>
-
-  <footer>
-    Made by Kobi ⚔️
-  </footer>
+  <div class="game-area" id="gameArea">
+    <h3>🎯 Match the Cards!</h3>
+    <div class="grid" id="grid"></div>
+  </div>
 
   <script>
-    document.getElementById("goblin-gang").addEventListener("click", function() {
-      window.location.href = "https://nononsenseguy03.github.io/clash-royale-website/";
-    });
+    const goblinImage = document.getElementById("goblinImage");
+    const gameArea = document.getElementById("gameArea");
+    const grid = document.getElementById("grid");
+
+    const characters = [
+      { name: "Knight", img: "https://static.wikia.nocookie.net/clashroyale/images/e/e9/KnightCard.png" },
+      { name: "Archer", img: "https://static.wikia.nocookie.net/clashroyale/images/4/4f/ArchersCard.png" },
+      { name: "Goblin", img: "https://static.wikia.nocookie.net/clashroyale/images/8/8e/GoblinsCard.png" },
+      { name: "Giant", img: "https://static.wikia.nocookie.net/clashroyale/images/4/40/GiantCard.png" }
+    ];
+
+    let firstCard = null;
+    let lockBoard = false;
+    let matchedPairs = 0;
+
+    goblinImage.ondblclick = () => {
+      gameArea.style.display = "block";
+      initGame();
+    };
+
+    function initGame() {
+      matchedPairs = 0;
+      const cardSet = [...characters, ...characters]; // Duplicate for pairs
+      cardSet.sort(() => 0.5 - Math.random()); // Shuffle
+
+      grid.innerHTML = "";
+      cardSet.forEach(char => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        const inner = document.createElement("div");
+        inner.classList.add("card-inner");
+
+        const front = document.createElement("div");
+        front.classList.add("card-front");
+
+        const back = document.createElement("div");
+        back.classList.add("card-back");
+        back.style.backgroundImage = `url(${char.img})`;
+        back.dataset.character = char.name;
+
+        inner.appendChild(front);
+        inner.appendChild(back);
+        card.appendChild(inner);
+
+        card.addEventListener("click", () => flipCard(card, char.name));
+        grid.appendChild(card);
+      });
+    }
+
+    function flipCard(card, name) {
+      if (lockBoard || card.classList.contains("flipped")) return;
+
+      card.classList.add("flipped");
+
+      if (!firstCard) {
+        firstCard = { card, name };
+      } else {
+        lockBoard = true;
+        if (firstCard.name === name) {
+          matchedPairs++;
+          firstCard = null;
+          lockBoard = false;
+
+          if (matchedPairs === characters.length) {
+            setTimeout(() => {
+              // Show the final message before redirect
+              const message = document.createElement("div");
+              message.style.fontSize = "24px";
+              message.style.color = "#00ff99";
+              message.style.fontWeight = "bold";
+              message.innerText = "Kobi's as proud of you as Jules is proud of Caleb";
+              document.body.appendChild(message);
+
+              // Redirect after 3 seconds
+              setTimeout(() => {
+                window.location.href = "https://example.com/next-stage"; // Replace with your actual link
+              }, 3000);
+            }, 1000);
+          }
+        } else {
+          setTimeout(() => {
+            card.classList.remove("flipped");
+            firstCard.card.classList.remove("flipped");
+            firstCard = null;
+            lockBoard = false;
+          }, 1000);
+        }
+      }
+    }
+
+    // Caesar Cipher Challenge
+    const correctCipher = "double click on the goblin gang"; // Decoded message
+    function checkCipher() {
+      const userInput = document.getElementById("cipherInput").value.toLowerCase();
+      const message = document.getElementById("cipherMessage");
+
+      if (userInput === correctCipher) {
+        message.innerText = "Correct! Now solve the trivia and click on the Goblin Gang!";
+        message.style.color = "lime";
+      } else {
+        message.innerText = "Try again!";
+        message.style.color = "red";
+      }
+    }
+
+    // Clash Royale Trivia
+    function checkTrivia() {
+      const triviaAnswer = document.getElementById("triviaAnswer").value.toLowerCase();
+      const triviaMessage = document.getElementById("triviaMessage");
+
+      if (triviaAnswer === "legendary") {
+        triviaMessage.innerText = "Correct! Now, decode the cipher!";
+        triviaMessage.style.color = "lime";
+      } else {
+        triviaMessage.innerText = "Incorrect, try again!";
+        triviaMessage.style.color = "red";
+      }
+    }
   </script>
 
 </body>
