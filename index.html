@@ -42,18 +42,26 @@
       background-color: #222;
       color: #eee;
       margin-top: 30px;
+      text-align: center;
     }
 
-    #goblin-gang {
-      text-decoration: underline;
+    .card {
+      display: inline-block;
+      margin: 10px;
+      border: 1px solid #444;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
       cursor: pointer;
-      color: #0f0;
+      transition: transform 0.3s ease;
     }
-    
-    .hidden-clue {
-      font-size: 14px;
-      color: #555;
-      cursor: help;
+
+    .card:hover {
+      transform: scale(1.1);
+    }
+
+    .card img {
+      width: 100px;
+      height: 140px;
     }
 
     footer {
@@ -61,7 +69,6 @@
       padding: 20px;
       color: #aaa;
     }
-
   </style>
 </head>
 <body>
@@ -82,19 +89,34 @@
     <p>Once you decipher the phrase, act on it...</p>
   </section>
 
-  <!-- Secret Deck Section -->
+  <!-- Secret Deck Section with Card Images -->
   <section id="deck">
     <h3>🔒 Kobi's Secret Deck</h3>
-    <ul>
-      <li>Miner</li>
-      <li>Magic Archer</li>
-      <li>Cannon Cart</li>
-      <li>Ice Spirit</li>
-      <li><span id="goblin-gang">Goblin Gang</span></li>
-      <li>Poison</li>
-      <li>Inferno Tower</li>
-      <li>Fireball</li>
-    </ul>
+    <p>Click the cards to unlock Kobi’s hidden website!</p>
+    <div class="card" id="goblin-gang">
+      <img src="https://static.wikia.nocookie.net/clashroyale/images/1/1e/Goblin_Gang_card.png/revision/latest/scale-to-width-down/350?cb=20170401045942" alt="Goblin Gang Card">
+    </div>
+    <div class="card">
+      <img src="https://static.wikia.nocookie.net/clashroyale/images/1/1e/Miner_card.png/revision/latest/scale-to-width-down/350?cb=20170401045942" alt="Miner Card">
+    </div>
+    <div class="card">
+      <img src="https://static.wikia.nocookie.net/clashroyale/images/1/1e/Magic_Archer_card.png/revision/latest/scale-to-width-down/350?cb=20170401045942" alt="Magic Archer Card">
+    </div>
+    <div class="card">
+      <img src="https://static.wikia.nocookie.net/clashroyale/images/1/1e/Cannon_Cart_card.png/revision/latest/scale-to-width-down/350?cb=20170401045942" alt="Cannon Cart Card">
+    </div>
+    <div class="card">
+      <img src="https://static.wikia.nocookie.net/clashroyale/images/1/1e/Ice_Spirit_card.png/revision/latest/scale-to-width-down/350?cb=20170401045942" alt="Ice Spirit Card">
+    </div>
+    <div class="card">
+      <img src="https://static.wikia.nocookie.net/clashroyale/images/1/1e/Poison_card.png/revision/latest/scale-to-width-down/350?cb=20170401045942" alt="Poison Card">
+    </div>
+    <div class="card">
+      <img src="https://static.wikia.nocookie.net/clashroyale/images/1/1e/Inferno_Tower_card.png/revision/latest/scale-to-width-down/350?cb=20170401045942" alt="Inferno Tower Card">
+    </div>
+    <div class="card">
+      <img src="https://static.wikia.nocookie.net/clashroyale/images/1/1e/Fireball_card.png/revision/latest/scale-to-width-down/350?cb=20170401045942" alt="Fireball Card">
+    </div>
   </section>
 
   <!-- Footer -->
