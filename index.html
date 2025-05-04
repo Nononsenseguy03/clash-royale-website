@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kobi's Clash Royale Site</title>
   <style>
-    * {
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #111;
+      color: white;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body, html {
-      font-family: 'Courier New', Courier, monospace;
-      color: white;
-      background-color: #111;
     }
 
     h2, h3 {
@@ -30,18 +26,10 @@
       border-bottom: 3px solid #444;
     }
 
-    #kobi-puzzle {
-      padding: 30px;
-      background-color: #222;
-      color: #eee;
-      text-align: center;
-    }
-
     #deck {
       padding: 20px;
       background-color: #222;
       color: #eee;
-      margin-top: 30px;
       text-align: center;
     }
 
@@ -64,6 +52,18 @@
       height: 140px;
     }
 
+    .clash-trivia {
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #181818;
+      color: #ffd700;
+      max-width: 800px;
+    }
+
+    .clash-trivia p {
+      margin-bottom: 15px;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -73,63 +73,47 @@
 </head>
 <body>
 
-  <!-- Hint for Puzzle -->
   <div class="cipher-hint">
-    👑 <strong>Kobi's Tip:</strong> Every king hides secrets in plain sight...  
-    Look for numbers. Look for letters. Combine Caesar’s wisdom with code you can count.  
-    Hidden beneath the battlefield lies a secret only true Royals can unlock.
+    👑 <strong>Kobi's Tip:</strong> Use a Caesar cipher and a number code. Start with the trivia. What do the first letters of the answers spell?
   </div>
 
-  <!-- Puzzle Instructions -->
-  <section id="kobi-puzzle">
-    <h2>🧩 Kobi's Cipher Challenge</h2>
-    <p>“The arena hides more than champions. Decode the fallen message.”</p>
-    <p><strong>Clue 1 – Numbers:</strong> 3 12 9 3 11</p>
-    <p><strong>Clue 2 – Caesar Shift:</strong> Shift each number’s letter by +2</p>
-    <p>Once you decipher the phrase, act on it...</p>
-  </section>
-
-  <!-- Secret Deck Section with Card Images -->
   <section id="deck">
     <h3>🔒 Kobi's Secret Deck</h3>
-    <p>Click the cards to unlock Kobi’s hidden website!</p>
+    <p>Click the right card to unlock the next part of the puzzle.</p>
     <div class="card" id="goblin-gang">
-      <img src="https://vignette.wikia.nocookie.net/clashroyale/images/1/1e/Goblin_Gang_card.png/revision/latest/scale-to-width-down/350?cb=20170401045942" alt="Goblin Gang Card">
+      <img src="https://static.wikia.nocookie.net/clashroyale/images/2/26/GoblinGangCard.png" alt="Goblin Gang Card">
     </div>
     <div class="card">
-      <img src="https://vignette.wikia.nocookie.net/clashroyale/images/1/1e/Miner_card.png/revision/latest/scale-to-width-down/350?cb=20170401045942" alt="Miner Card">
+      <img src="https://static.wikia.nocookie.net/clashroyale/images/5/5a/MinerCard.png" alt="Miner Card">
     </div>
     <div class="card">
-      <img src="https://vignette.wikia.nocookie.net/clashroyale/images/1/1e/Magic_Archer_card.png/revision/latest/scale-to-width-down/350?cb=20170401045942" alt="Magic Archer Card">
-    </div>
-    <div class="card">
-      <img src="https://vignette.wikia.nocookie.net/clashroyale/images/1/1e/Cannon_Cart_card.png/revision/latest/scale-to-width-down/350?cb=20170401045942" alt="Cannon Cart Card">
-    </div>
-    <div class="card">
-      <img src="https://vignette.wikia.nocookie.net/clashroyale/images/1/1e/Ice_Spirit_card.png/revision/latest/scale-to-width-down/350?cb=20170401045942" alt="Ice Spirit Card">
-    </div>
-    <div class="card">
-      <img src="https://vignette.wikia.nocookie.net/clashroyale/images/1/1e/Poison_card.png/revision/latest/scale-to-width-down/350?cb=20170401045942" alt="Poison Card">
-    </div>
-    <div class="card">
-      <img src="https://vignette.wikia.nocookie.net/clashroyale/images/1/1e/Inferno_Tower_card.png/revision/latest/scale-to-width-down/350?cb=20170401045942" alt="Inferno Tower Card">
-    </div>
-    <div class="card">
-      <img src="https://vignette.wikia.nocookie.net/clashroyale/images/1/1e/Fireball_card.png/revision/latest/scale-to-width-down/350?cb=20170401045942" alt="Fireball Card">
+      <img src="https://static.wikia.nocookie.net/clashroyale/images/2/2c/MagicArcherCard.png" alt="Magic Archer Card">
     </div>
   </section>
 
-  <!-- Footer -->
+  <section class="clash-trivia">
+    <h2>🧠 Clash Royale Trivia</h2>
+    <p><strong>Q1:</strong> Which card costs the least elixir in the game?<br><strong>A:</strong> <em>Goblins</em></p>
+    <p><strong>Q2:</strong> What happens when a match ends in a tie?<br><strong>A:</strong> <em>Overtime</em></p>
+    <p><strong>Q3:</strong> Which card deals area damage and flies?<br><strong>A:</strong> <em>Baby Dragon</em></p>
+    <p><strong>Q4:</strong> What flying tank has the most health?<br><strong>A:</strong> <em>Lava Hound</em></p>
+    <p><strong>Q5:</strong> Which troop freezes enemies upon contact?<br><strong>A:</strong> <em>Ice Spirit</em></p>
+    <p><strong>Q6:</strong> What troop spawns bats and rides a pig?<br><strong>A:</strong> <em>Night Witch</em></p>
+    <p><strong>Q7:</strong> Which rare card splits into two when defeated?<br><strong>A:</strong> <em>Guards</em></p>
+    <p><strong>Q8:</strong> What spell damages both troops and buildings?<br><strong>A:</strong> <em>Arrows</em></p>
+    <p><strong>Q9:</strong> Which troop can clone others?<br><strong>A:</strong> <em>Night Witch</em></p>
+    <p><strong>Q10:</strong> What’s the name of the strongest ground tank troop?<br><strong>A:</strong> <em>Giant</em></p>
+  </section>
+
   <footer>
     Made by Kobi ⚔️
   </footer>
 
-  <!-- Script for redirect -->
   <script>
     document.getElementById("goblin-gang").addEventListener("click", function() {
-      window.location.href = "https://your-secret-site.com"; // Replace with your actual target URL
+      window.location.href = "https://nononsenseguy03.github.io/clash-royale-website/";
     });
   </script>
-  
+
 </body>
 </html>
